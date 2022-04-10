@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "vcfxplr"
-version = "0.1.0"
+version = "0.1.1"
 description = "CLI tool to explore and export data from a VCF / vCard file"
 authors = ["Nikos Koukis <nickkouk@gmail.com>", ]
 license = "MIT"

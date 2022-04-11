@@ -42,4 +42,4 @@ pip3 install --user --upgrade git+https://github.com/bergercookie/vcfxplr
 
 - Pretty-print a file: `vcfxplr -c path/to/file.vcf pretty`
 - Write to JSON and dump to stdout: `vcfxplr -c path/to/file.vcf json`
-- Write to JSON and dump to stdout - Use `fullname` to group the items: `vcfxplr -c path/to/file.vcf json -g fullname`
+- Write to JSON and dump to stdout - Use `fullname` to group the items: `vcfxplr -c path/to/file.vcf json -g uid`

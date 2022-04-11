@@ -31,18 +31,21 @@ def to_json(vobjects: SeqOfVobj, group_by: str) -> Mapping:
 
         curr = {}
         for k, v in c.contents.items():
-            # TODO Should i iterate on v?
-            v0: vobject.base.ContentLine = v[0]  # type: ignore
-            if isinstance(v0.value, str):
-                val = v0.value
-            else:
-                val = str(v0.value)
+            li = []
+            for value in v:
+                if isinstance(value.value, str):
+                    val = value.value
+                else:
+                    val = str(value.value)
 
-            val = val.strip()
-            if v0.params:
-                curr[k] = {"value": val, "params": v0.params}
-            else:
-                curr[k] = {"value": val}
+                val = val.strip()
+                if value.params:
+                    item = {"value": val, "params": value.params}
+                else:
+                    item = {"value": val}
+
+                li.append(item)
+            curr[k] = li
 
         if not isinstance(key, str):
             key = str(key)

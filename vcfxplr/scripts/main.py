@@ -82,7 +82,6 @@ def main():
     args = vars(parser.parse_args())
 
     vcf: Path = args["vcf"]
-    logger.info("Contacts file: ", vcf)
 
     # Parse VCF file --------------------------------------------------------------------------
     logger.info(f"Parsing VCF file -> {vcf}")

@@ -43,3 +43,169 @@ pip3 install --user --upgrade git+https://github.com/bergercookie/vcfxplr
 - Pretty-print a file: `vcfxplr -c path/to/file.vcf pretty`
 - Write to JSON and dump to stdout: `vcfxplr -c path/to/file.vcf json`
 - Write to JSON and dump to stdout - Use `fullname` to group the items: `vcfxplr -c path/to/file.vcf json -g uid`
+
+## Sample Output
+
+Sample execution for `vcfxplr -c ~/Downloads/test.vcf json`
+
+```
+2022-04-13 10:30:59.923 | INFO     | vcfxplr.scripts.main:main:87 - Parsing VCF file -> /home/berger/Downloads/test.vcf
+{
+  "John Doe": {
+    "version": [
+      {
+        "value": "4.0"
+      }
+    ],
+    "email": [
+      {
+        "value": "john@doe.com",
+        "params": {
+          "PREF": [
+            "1"
+          ]
+        }
+      },
+      {
+        "value": "john2@doe.com"
+      }
+    ],
+    "n": [
+      {
+        "value": "John  Doe"
+      }
+    ],
+    "tel": [
+      {
+        "value": "+44113712382",
+        "params": {
+          "TYPE": [
+            "home"
+          ],
+          "VALUE": [
+            "TEXT"
+          ]
+        }
+      },
+      {
+        "value": "+44113728883",
+        "params": {
+          "TYPE": [
+            "work"
+          ],
+          "VALUE": [
+            "TEXT"
+          ]
+        }
+      },
+      {
+        "value": "+44111238885",
+        "params": {
+          "TYPE": [
+            "fax"
+          ],
+          "VALUE": [
+            "TEXT"
+          ]
+        }
+      }
+    ],
+    "uid": [
+      {
+        "value": "88cb5e2c-30e3-4b2e-b7bd-ce347a3652a7"
+      }
+    ]
+  },
+  "Ground Control": {
+    "version": [
+      {
+        "value": "4.0"
+      }
+    ],
+    "email": [
+      {
+        "value": "ground@control.com",
+        "params": {
+          "PREF": [
+            "1"
+          ]
+        }
+      }
+    ],
+    "tel": [
+      {
+        "value": "+1123456789",
+        "params": {
+          "VALUE": [
+            "TEXT"
+          ]
+        }
+      }
+    ],
+    "uid": [
+      {
+        "value": "7d50ef3d-32be-4b3c-a36b-9a083a8d67b6"
+      }
+    ]
+  },
+  "another  contact": {
+    "version": [
+      {
+        "value": "4.0"
+      }
+    ],
+    "nickname": [
+      {
+        "value": "contact@gmail.com"
+      }
+    ],
+    "n": [
+      {
+        "value": "another   contact"
+      }
+    ],
+    "tel": [
+      {
+        "value": "+12344566789",
+        "params": {
+          "VALUE": [
+            "TEXT"
+          ]
+        }
+      }
+    ],
+    "uid": [
+      {
+        "value": "bf2439a6-35cb-4d97-970d-bd31486b61e8"
+      }
+    ]
+  },
+  "one more contact": {
+    "version": [
+      {
+        "value": "4.0"
+      }
+    ],
+    "n": [
+      {
+        "value": "one  more contact"
+      }
+    ],
+    "tel": [
+      {
+        "value": "+49728392882",
+        "params": {
+          "VALUE": [
+            "TEXT"
+          ]
+        }
+      }
+    ],
+    "uid": [
+      {
+        "value": "99b7de2c-26c7-4655-aa19-74c51a1507b0"
+      }
+    ]
+  }
+}
+```

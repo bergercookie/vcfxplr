@@ -4,10 +4,10 @@ import argparse
 import json
 import sys
 from pathlib import Path
-from typing import Any, Dict, Mapping, Sequence
+from typing import Any, Dict, Mapping, Sequence, cast
 
 import vobject
-from bubop import logger, valid_file
+from bubop import logger, valid_file  # type: ignore
 
 SeqOfVobj = Sequence[vobject.base.Component]
 
@@ -33,14 +33,15 @@ def to_json(vobjects: SeqOfVobj, group_by: str) -> Mapping:
         for k, v in c.contents.items():
             li = []
             for value in v:
-                if isinstance(value.value, str):
-                    val = value.value
+                value_ = cast(vobject.base.ContentLine, value)
+                if isinstance(value_.value, str):
+                    val = value_.value
                 else:
-                    val = str(value.value)
+                    val = str(value_.value)
 
                 val = val.strip()
-                if value.params:
-                    item = {"value": val, "params": value.params}
+                if value_.params:
+                    item = {"value": val, "params": value_.params}
                 else:
                     item = {"value": val}
 
